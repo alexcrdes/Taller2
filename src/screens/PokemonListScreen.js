@@ -1,14 +1,15 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useState } from "react";
-import { createContext } from "react";
+import FavoriteContext from "../components/FavoriteContext";
 import Pokemon from "../components/Pokemon";
-import logo from "../imagen/icons8-añadir-48.png"; 
+
 
 export default function PokemonListScreen() {
 
   const [pokemons, setPokemons] = useState([]);
-  const [list, setList] = useState([]);
-  const FavoritoContext = createContext();
+  //const [list, setList] = useState([]);
+  // const FavoritoContext = createContext();
+  const [list, setList] =  useContext(FavoriteContext) 
 
 
   
@@ -30,20 +31,20 @@ export default function PokemonListScreen() {
     const agregar = (e) => {
       console.log(e)
       const newPokemon = pokemons.filter((item) => item.id == e)
-      console.log(newPokemon)
+      //console.log(newPokemon)
       const updatedItems = [...list, newPokemon];
       setList(updatedItems);
       console.log(list)
     };
 
-    function FavoritoProvider({ children }) {
+    // function FavoritoProvider({ children }) {
     
-      return (
-        <FavoritoContext.Provider value={[list, setList] }>
-          {children}
-        </FavoritoContext.Provider>
-      )
-    }
+    //   return (
+    //     <FavoritoContext.Provider value={[list, setList] }>
+    //       {children}
+    //     </FavoritoContext.Provider>
+    //   )
+    // }
  
   return (
     <section className="container">

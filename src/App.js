@@ -6,16 +6,19 @@ import PokemonListScreen from "./screens/PokemonListScreen";
 
 
 import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { FavoriteProvider } from "./components/FavoriteContext";
 
 function App() {
  return (
-   <BrowserRouter>
-     <Navigation />
-     <Routes>
-       <Route path="/" element={<PokemonListScreen />}/>
-       <Route path="/favoritos" element={<FavoriteListScreen />}/>
-     </Routes>
-   </BrowserRouter>
+    <FavoriteProvider>
+      <BrowserRouter>
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<PokemonListScreen />}/>
+          <Route path="/favoritos" element={<FavoriteListScreen />}/>
+        </Routes>
+      </BrowserRouter>
+    </FavoriteProvider>
  );
 }
 
