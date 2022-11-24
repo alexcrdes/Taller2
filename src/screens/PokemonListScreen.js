@@ -5,9 +5,7 @@ import Pokemon from "../components/Pokemon";
 
 export default function PokemonListScreen() {
 
-  //const [pokemons, setPokemons] = useState([]);
-  //const [list, setList] = useState([]);
-  // const FavoritoContext = createContext();
+
   const {pokemons, agregar} =  useContext(FavoriteContext) 
 
  
@@ -18,7 +16,7 @@ export default function PokemonListScreen() {
       <div className="container">
         <div className="row">
           {pokemons.map((pokemon) => (
-            <Pokemon id={pokemon.id} name= {pokemon.name}  image={pokemon.imageUrl} childClikend={(e)=>agregar(e)} />
+            <Pokemon id={pokemon.id} name= {pokemon.name}  image={pokemon.imageUrl} favorito={pokemon.favorito} childClikend={(e)=>agregar(e)} />
           ))}
         </div>
       </div>

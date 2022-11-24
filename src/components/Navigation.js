@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function Navigation() {
   return (
     <header className="mb-3">
-      <nav className="navbar navbar-dark navbar-expand-lg bg-dark">
+      <nav className="navbar navbar-dark navbar-expand-lg bg-warning">
         <div className="container">
           <span className="navbar-brand">Pokemons</span>
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">

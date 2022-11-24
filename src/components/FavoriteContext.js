@@ -18,21 +18,26 @@ const FavoriteProvider = ({ children }) => {
           ...pokemon,
           id: 
            index + 1,
-          imageUrl: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`
+          imageUrl: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`,
+          favorito : false
         })));
-        // [{ name: '...', id: 1, url: '...', imageUrl: '' }]
       });
   }, []);
 
   const agregar = (e) => {
     console.log(e)
     const newPokemon = pokemons.filter((item) => item.id === e)
-    console.log(newPokemon[0].id)
-    // const updatedItems = [...list];
-    // updatedItems.push({ id: newPokemon.id, name: newPokemon.name, imageUrl: newPokemon.imageUrl , url: newPokemon.url }); // modificar
+    // newPokemon[0].favorito = true
+
+    // const modItems = [...pokemons];
+    // modItems.splice(newPokemon[0].index, 1, newPokemon[0]);
+    // setPokemons(updatedItems);
+
+    //console.log(newPokemon[0])
     const updatedItems = [...list, newPokemon[0]];
     setList(updatedItems);
     //console.log(list)
+
   };
 
     const data ={list,pokemons,agregar}
