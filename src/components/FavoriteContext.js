@@ -27,16 +27,17 @@ const FavoriteProvider = ({ children }) => {
   const agregar = (e) => {
     console.log(e)
     const newPokemon = pokemons.filter((item) => item.id === e)
-    // newPokemon[0].favorito = true
 
-    // const modItems = [...pokemons];
-    // modItems.splice(newPokemon[0].index, 1, newPokemon[0]);
-    // setPokemons(updatedItems);
-
-    //console.log(newPokemon[0])
-    const updatedItems = [...list, newPokemon[0]];
-    setList(updatedItems);
-    //console.log(list)
+    if (newPokemon[0].favorito === true) {
+      newPokemon[0].favorito = false
+      const newList = list.filter((item) => item.id !== e)
+      setList(newList);
+    }
+    else{
+      newPokemon[0].favorito = true
+      const updatedItems = [...list, newPokemon[0]];
+      setList(updatedItems);
+    }
 
   };
 
